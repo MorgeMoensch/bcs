@@ -1,0 +1,54 @@
+// Imports
+@import 'reset.css';
+@import 'fonts.less';
+
+// Variables
+@background-color: #1d1f20;
+@text-color: #e5e5e5;
+@accent-color: #e3001a;
+
+@font-face: {
+	.font-names();
+}
+
+body {
+	background: @background-color;
+	color: @text-color;
+}
+
+a, a:active, a:link, a:visited {
+	color: @text-color;
+	font: 1em 'Raleway', sans-serif;
+}
+
+// Navbar
+#navbar-container {
+	display: table;
+	height: 4em;
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	background-color: @accent-color;
+
+	#navbar {
+		display: table-cell;
+		vertical-align: middle;
+		ul {
+			text-align: center;
+			float: right;
+		}
+		li {
+			float: left;
+			margin: 0 1em 0 1em;
+			font-size: 1.1em;
+			font: 1em 'Raleway', sans-serif;
+			font-weight: bold;
+
+			a {
+				text-decoration: none;
+				font-weight: inherit;
+			}
+		}
+	}
+}
+
