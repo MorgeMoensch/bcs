@@ -33,22 +33,32 @@ a, a:active, a:link, a:visited {
 	#navbar {
 		display: table-cell;
 		vertical-align: middle;
+		height: 100%;
 		ul {
 			text-align: center;
 			float: right;
+			height: inherit;
+			display: block;
 		}
 		li {
 			float: left;
-			margin: 0 1em 0 1em;
-			font-size: 1.1em;
-			font: 1em 'Raleway', sans-serif;
+			padding: 0 1em 0 1em;
+			font: 1.1em 'Raleway', sans-serif;
 			font-weight: bold;
-
+			height: 100%;
+			position: relative;
+			line-height: 4em;
+			
 			a {
 				text-decoration: none;
 				font-weight: inherit;
 			}
 		}
+
+		li:hover {
+			background-color: @background-color;
+		}
 	}
 }
+
 
