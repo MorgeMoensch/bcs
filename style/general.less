@@ -7,6 +7,10 @@
 @text-color: #e5e5e5;
 @text-color-dark: black;
 @accent-color: #e3001a;
+@sizes: {
+	mobile: 320px;
+	desktop: 1024px;
+};
 
 @font-face: {
 	.font-names();
@@ -20,6 +24,18 @@ body {
 a, a:active, a:link, a:visited {
 	color: @text-color;
 	font: 1em 'Raleway', sans-serif;
+}
+
+@media (max-width: @sizes[desktop]) {
+	.mobile-only {
+		display: none;
+	}
+}
+
+@media (min-width: @sizes[desktop]) {
+	.desktop-only {
+		display: none;
+	}
 }
 
 // Navbar
@@ -37,82 +53,136 @@ a, a:active, a:link, a:visited {
 		vertical-align: middle;
 		height: 100%;
 		overflow: visible;
-		ul {
-			text-align: center;
-			float: right;
-			height: inherit;
+
+		#info-dropdown-toggle {
+			display: none;
 		}
-		li {
-			float: left;
-			font: 1.1em 'Raleway', sans-serif;
-			font-weight: bold;
-			height: 100%;
-			line-height: 4em;
-
-			a {
-				text-decoration: none;
-				font-weight: inherit;
-				padding: 1.5em 0.5em 1.5em 0.5em;
-				line-height: 1em;
-			}
-
-			#info-dropdown-label {
-				height: 100%;
-				padding-left: 0.5em;
-				padding-right: 0.5em;
-			}
-
-			// Info-Dropdown
+		@media (max-width: @sizes[desktop]) {
 			ul {
-				display: none;
-				table-layout: fixed;
-				position: absolute;
-				color: white;
-				background-color: white;
-				width: 10em;
+				display: block;
+				width: 100%;
+				min-height: 100vh;
+			}
 
-				li {
-					display: block;
-					width: 100%;
-					a {
-					 	color: @text-color-dark;
-					 	padding-left: 0.2em;
-						padding-right: 0.2em;
+			li {
+				text-align: center;
+				font: 4em 'Raleway', sans-serif;
+				padding: 1em;
+
+				ul {
+					display: none;
+
+					li {
+						font-size: 1em;
+					}
+
+					li:last-child {
+						padding-bottom: 0;
+
+						a {
+							padding-bottom: 0;
+						}
+					}
+				}
+
+				a {
+					text-decoration: none;
+					//font-weight: inherit;
+					padding: 1.5em 0.5em 1.5em 0.5em;
+					line-height: 1em;
+				}
+
+				#info-dropdown-toggle:checked ~ #info-dropdown {
+					display: table;
+				}
+			}
+
+
+			img {
+				height: 10em;
+			}
+		}
+
+		@media (min-width: @sizes[desktop]) {
+			ul {
+				text-align: center;
+				float: right;
+				height: inherit;
+			}
+			li {
+				float: left;
+				font: 1.1em 'Raleway', sans-serif;
+				font-weight: bold;
+				height: 100%;
+				line-height: 4em;
+
+				a {
+					text-decoration: none;
+					font-weight: inherit;
+					padding: 1.5em 0.5em 1.5em 0.5em;
+					line-height: 1em;
+				}
+
+				#info-dropdown-label {
+					height: 100%;
+					padding-left: 0.5em;
+					padding-right: 0.5em;
+					padding: 1.5em 0.5em 1.5em 0.5em;
+				}
+
+				// Info-Dropdown
+				ul {
+					display: none;
+					table-layout: fixed;
+					position: absolute;
+					color: white;
+					background-color: white;
+					width: 10em;
+
+					li {
 						display: block;
 						width: 100%;
-						height: 100%;
+						a {
+						 	color: @text-color-dark;
+						 	padding-left: 0.2em;
+							padding-right: 0.2em;
+							display: block;
+							width: 100%;
+							height: 100%;
+						}
+					}
+
+					li:hover {
+						box-shadow: 0px 5px 15px -3px white, 
+		        					-5px 5px 15px -3px white, 
+		        					5px 5px 15px -3px white;
+
+						a {
+							color: @text-color;
+						}
 					}
 				}
 
-				li:hover {
-					box-shadow: 0px 5px 15px -3px white, 
-	        					-5px 5px 15px -3px white, 
-	        					5px 5px 15px -3px white;
+				#info-dropdown-label:hover ~ #info-dropdown {
+					display: table;
+				}
 
-					a {
-						color: @text-color;
-					}
+				#info-dropdown:hover {
+					display: table;
 				}
 			}
 
-			#info-dropdown-label:hover ~ #info-dropdown {
-				display: table;
+			li:hover {
+				background-color: @background-color;
 			}
 
-			#info-dropdown:hover {
-				display: table;
+			img {
+				display: inline-block;
+				vertical-align: top;
+				height: 4.4em;
 			}
 		}
-
-		li:hover {
-			background-color: @background-color;
-		}
-
-		img {
-			display: inline-block;
-			vertical-align: top;
-			height: 4.4em;
-		}
+		
 	}
 }
 
