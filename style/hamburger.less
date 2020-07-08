@@ -1,0 +1,86 @@
+.hamburger {
+	#hamburger-wrapper {
+		display: block;
+		overflow: visible;
+		margin: 0;
+		cursor: pointer;
+		transition-timing-function: linear;
+		transition-duration: .15s;
+		transition-property: opacity,filter;
+		background-color: transparent;
+		height: 10em;
+		float: right;
+	}
+
+	.hamburger-box {
+		position: relative;
+		display: inline-block;
+		width: 15em;
+		height: 10em;
+	}
+
+	.hamburger-inner, .hamburger-inner::after, .hamburger-inner::before {
+	    position: absolute;
+	    width: 5em;
+	    height: 0.5em;
+	    transition-timing-function: ease;
+	    transition-duration: .15s;
+	    transition-property: transform;
+	    background-color: #fff;
+	    content: "";
+	}
+
+	.hamburger-inner {
+	    top: 65%;
+	    display: block;
+	    margin-top: -0.25em;
+	    left: 50%;
+	}
+
+	.hamburger-inner::before {
+		top: -1em;
+	    transition: top .12s cubic-bezier(.33333,.66667,.66667,1) .2s,transform .13s cubic-bezier(.55,.055,.675,.19);
+	}
+
+	.hamburger-inner::after {
+	    top: -2em;
+	    transition: top .2s cubic-bezier(.33333,.66667,.66667,1) .2s,opacity .1s linear;
+	}
+
+	#mobile-menu-toggle:checked ~ #hamburger-wrapper {
+		.hamburger-inner::before {
+		    top: 0;
+		    transition: top .1s cubic-bezier(.33333,0,.66667,.33333) .16s,transform .13s cubic-bezier(.215,.61,.355,1) .25s;
+		    transform: rotate(-90deg);
+		}
+
+		.hamburger-inner {
+		    transition-delay: .22s;
+		    transition-timing-function: cubic-bezier(.215,.61,.355,1);
+		    transform: translate3d(0,-10px,0) rotate(-45deg);
+		}
+
+		.hamburger-inner::after {
+		    top: 0;
+		    transition: top .2s cubic-bezier(.33333,0,.66667,.33333),opacity .1s linear .22s;
+		    opacity: 0;
+		}
+	}
+
+	#mobile-menu-toggle ~ #menu {
+		display: none;
+	}
+
+	#mobile-menu-toggle:checked ~ #menu {
+		display: block;
+	}
+
+	#mobile-menu-toggle-label {
+		display: block;
+		position: absolute;
+		right: 0%;
+		height: 10em;
+		width: 15em;
+		z-index: 1;
+	}
+}
