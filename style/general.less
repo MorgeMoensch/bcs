@@ -1,6 +1,7 @@
 // Imports
 @import 'reset.css';
 @import 'fonts.less';
+@import 'hamburger.less';
 
 // Variables
 @background-color: #1d1f20;
@@ -27,15 +28,19 @@ a, a:active, a:link, a:visited {
 }
 
 @media (max-width: @sizes[desktop]) {
-	.mobile-only {
+	.desktop-only {
 		display: none;
 	}
 }
 
 @media (min-width: @sizes[desktop]) {
-	.desktop-only {
+	.mobile-only {
 		display: none;
 	}
+}
+
+.hidden {
+	display: none;
 }
 
 // Navbar
@@ -57,11 +62,13 @@ a, a:active, a:link, a:visited {
 		#info-dropdown-toggle {
 			display: none;
 		}
+
 		@media (max-width: @sizes[desktop]) {
 			ul {
 				display: block;
 				width: 100%;
-				min-height: 100vh;
+				min-height: calc(100vh - 10em);
+				padding-top: 10em;
 			}
 
 			li {
@@ -71,6 +78,7 @@ a, a:active, a:link, a:visited {
 
 				ul {
 					display: none;
+					padding-top: 1em;
 
 					li {
 						font-size: 1em;
@@ -87,7 +95,6 @@ a, a:active, a:link, a:visited {
 
 				a {
 					text-decoration: none;
-					//font-weight: inherit;
 					padding: 1.5em 0.5em 1.5em 0.5em;
 					line-height: 1em;
 				}
@@ -97,10 +104,15 @@ a, a:active, a:link, a:visited {
 				}
 			}
 
-
-			img {
-				height: 10em;
+			> a {
+				position: absolute;
+				top: 0;
+				img {
+					height: 10em;
+				}
 			}
+			
+			.hamburger();
 		}
 
 		@media (min-width: @sizes[desktop]) {
