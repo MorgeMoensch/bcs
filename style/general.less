@@ -30,9 +30,18 @@ h1 {
 	font: 4em 'Oswald', serif;
 }
 
+h2 {
+	font: 2em 'Oswald', serif;
+}
+
 p {
 	font-family: 'Raleway';
 	font-size: 1.5em;
+}
+
+#map {
+	width: 20em;
+	height: 20em;
 }
 
 @media (max-width: @sizes[desktop]) {
@@ -57,6 +66,7 @@ main {
 
 p {
 	padding: 1em;
+	max-width: 100%;
 }
 
 @media (max-width: @sizes[desktop]) {
@@ -67,6 +77,10 @@ p {
 
 	p, a {
 		font-size: 2.5em;
+	}
+
+	h2 {
+		font-size: 3em;
 	}
 }
 
