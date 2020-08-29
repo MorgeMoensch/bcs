@@ -1,5 +1,0 @@
-/* We want to prevent a light flash when the page loads. This is due to the compute time from less */
-
-body {
-	background-color: #1d1f20;
-}
