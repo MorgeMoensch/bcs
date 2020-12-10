@@ -1,17 +1,23 @@
+<!-- DO NOT USE IN PRODUCTION -->
+<!-- This is only a WIP to further test and develop -->
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Wandertag 2012 - Galerie | BCS</title>
-	<script type="text/javascript" src="../js/gallery.js"></script>
-	<script type="text/javascript">window.onload = () => {setupDOM(115, 'hoi')}</script>
-</head>
-<body>
-	<div>
-		<img src="" class="hidden" id="maximizedImagePlaceholder">
-	</div>
-	<main>
-		
-	</main>
-
-</body>
+<html lang="de">
+	<head>
+		<title>Wandertag 2012 - Galerie | BCS</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet/less" type="text/css" href="../style/general.less">
+		<script src="../js/less.js"></script>
+		<script src="../js/gallery.js"></script>
+		<!-- This is only temporary for testing purposes -->
+		<script>window.onload = () => {setupDOM(115, 'hoi')}</script>
+	</head>
+	<body>
+		<div>
+			<button onclick="minimizeImage()">Minimize</button>
+			<img src="" class="hidden" id="maximizedImagePlaceholder">
+		</div>
+		<main>
+			
+		</main>
+	</body>
 </html>
