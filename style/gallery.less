@@ -1,0 +1,16 @@
+@background-color: #1d1f20;
+#maximizedImageWrapper {
+	height: 100%;
+	width: 100%;
+	background-color: fade(@background-color, 60%);
+	position: fixed;
+	left: 0;
+	top: 0;
+
+	img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}

@@ -16,9 +16,16 @@ function maximizeImage(number, event) {
 	placeholder.setAttribute("src", `${IMAGES_BASE_PATH}/full/${event}/${number}`);
 	placeholder.setAttribute("src", `../../BCS-old/gallery/night/2017/img (${number}).jpg`);
 	placeholder.setAttribute('class', '');
+
+	var wrapper = document.getElementById('maximizedImageWrapper');
+	wrapper.setAttribute('class', '');
 }
 
 function minimizeImage() {
 	var maximizedImage = document.getElementById('maximizedImagePlaceholder');
+	maximizedImage.setAttribute("src", "")
 	maximizedImage.setAttribute('class', 'hidden');
+
+	var wrapper = document.getElementById('maximizedImageWrapper');
+	wrapper.setAttribute('class', 'hidden');
 }
