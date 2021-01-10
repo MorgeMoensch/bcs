@@ -14,7 +14,7 @@
 		<script src="../js/less.js"></script>
 		<script src="../js/gallery.js"></script>
 		<!-- This is only temporary for testing purposes -->
-		<script>window.onload = () => {setupDOM(115, 'hoi')}</script>
+		<script>window.onload = () => {setupGallery(115, 'hoi')}</script>
 	</head>
 	<body>
 		<div id="navbar-container">
@@ -50,12 +50,14 @@
 			</div>
 		</div>
 		<main>
-		<div>
-			<div id="maximizedImageWrapper" class="hidden">
-			<img src="" class="hidden" id="maximizedImagePlaceholder" onclick="minimizeImage()">
-		</div>
-
-		</div>			
+			<div>
+				<div id="maximizedImageWrapper" class="hidden">
+					<img src="" class="hidden" id="maximizedImagePlaceholder" onclick="minimizeImage()">
+					<img src="../img/icons/arrow-left.svg" class="gallery-nav" id="gallery-nav-left" onclick="showPreviousImage()">
+					<img src="../img/icons/arrow-right.svg" class="gallery-nav" id="gallery-nav-right" onclick="showNextImage()">
+				</div>
+			</div>
+			<div id="gallery-grid"></div>
 		</main>
 	</body>
 </html>
