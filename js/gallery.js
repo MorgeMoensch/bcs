@@ -8,6 +8,8 @@ function setupGallery(numberOfImages, eventName) {
 	this.number_of_images = numberOfImages;
 	setupDOM(numberOfImages, eventName);
 	setupOnKeyPressed();
+
+	handleWebPSupport();
 }
 
 function setupDOM(numberOfImages, eventName) {
@@ -20,8 +22,6 @@ function setupDOM(numberOfImages, eventName) {
 		image_container.setAttribute('onclick', `maximizeImage(${i}, '${eventName.toString()}')`);
 		anchor.appendChild(image_container);
 	};
-
-
 }
 
 function setupOnKeyPressed() {
@@ -94,4 +94,20 @@ function setVisibilityTo(visiblity, id) {
 	} else {
 		document.getElementById(id).classList.add('hidden');
 	}
+}
+
+function handleWebPSupport() {
+	supportsWebp().then(supported => {
+		if (!supported) {
+			alert("Dein Browser unterstützt kein WebP. Deshalb können die Bilder nicht angezeigt werden. \n\nBitte update deinen Browser, oder installiere Firefox.\n\nWenn das Problem weiterhin besteht, kannst du dich bei webmaster ät bcschuepfen.ch melden")
+		}
+	})
+}
+
+async function supportsWebp() {
+	if (!self.createImageBitmap) return false;
+
+	const webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
+	const blob = await fetch(webpData).then(r => r.blob());
+	return createImageBitmap(blob).then(() => true, () => false);
 }
