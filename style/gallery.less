@@ -1,4 +1,9 @@
+@import 'sizes.less';
+
 @background-color: #1d1f20;
+@sizes: {
+	.sizes();
+}
 
 main {
 	max-width: 90vw;
@@ -10,10 +15,10 @@ main {
 
 	img {
 		max-height: 20vh;
-		object-fit: cover;
+		object-fit: contain;
 		margin: 0.1em;
-		flex-grow: 10;
-		flex-basis: 10em;
+		flex-grow: 1;
+		//flex-basis: 10em;
 		max-width:30em;
 	}
 }
@@ -25,13 +30,18 @@ main {
 	position: fixed;
 	left: 0;
 	top: 0;
-	z-index: 10;	
+	z-index: 10;
 
 	#maximizedImagePlaceholder {
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		max-height: 90vh;
+
+		@media (max-width: @sizes[desktop]) {
+			width: 95%;
+		}
 	}
 }
 
@@ -50,4 +60,11 @@ main {
 		position: fixed;
 		left: 0;
 	}
+}
+
+#gallery-nav-close {
+	position: fixed;
+	top: 10%;
+	right: 0;
+	height: 5em;
 }

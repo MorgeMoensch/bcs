@@ -21,7 +21,11 @@ function setupDOM(numberOfImages, eventName) {
 		image_container.setAttribute("src", `../../BCS-old/gallery/thumbs/night/2017/img (${i}).jpg`);
 		image_container.setAttribute('onclick', `maximizeImage(${i}, '${eventName.toString()}')`);
 		anchor.appendChild(image_container);
-	};
+	}
+
+	// Possible other solution:
+	// Use 3+ Cols, split up all the images due to their index on to separate cols. Similarely how
+	// unsplash solves it.
 }
 
 function setupOnKeyPressed() {
@@ -55,13 +59,13 @@ function maximizeImage(number) {
 	this.is_maximized = true;
 
 	// Hide Arrows if no more image is available in this direction.
-	if (number == 1) {
+	if (number === 1) {
 		setVisibilityTo(false, 'gallery-nav-left');
 	} else {
 		setVisibilityTo(true, 'gallery-nav-left');
 	}
 
-	if (number == this.number_of_images) {
+	if (number === this.number_of_images) {
 		setVisibilityTo(false, 'gallery-nav-right');
 	} else {
 		setVisibilityTo(true, 'gallery-nav-right');

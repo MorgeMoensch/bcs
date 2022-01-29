@@ -3,7 +3,7 @@
 	<head>
 		<title>Wandertag 2012 - Galerie | BCS</title>
 		<meta charset="UTF-8">
-		<style type="text/css">
+		<style>
 			body {
 				background-color: #1d1f20;
 			}
@@ -35,11 +35,11 @@
 						<label for="info-dropdown-toggle" id="info-dropdown-label">Infos</label>
 						<input type="checkbox" id="info-dropdown-toggle">
 						<ul id="info-dropdown">
-							<li><a href="training.html">Trainingszeiten</a></li>
-							<li><a href="team.html">Team</a></li>
-							<li><a href="turniere.html">Turniere</a></li>
-							<li><a href="downloads.html">Downloads</a></li>
-							<li><a href="mitgliedschaft.html">Mitgliedschaft</a></li>
+							<li><a href="../training.html">Trainingszeiten</a></li>
+							<li><a href="../team.html">Team</a></li>
+							<li><a href="../turniere.html">Turniere</a></li>
+							<li><a href="../downloads.html">Downloads</a></li>
+							<li><a href="../mitgliedschaft.html">Mitgliedschaft</a></li>
 						</ul>
 					</li>
 					<li><a href="https://bcschuepfen.ch/gallery/">Bildergalerie</a></li>
@@ -53,6 +53,7 @@
 			<div>
 				<div id="maximizedImageWrapper" class="hidden">
 					<img src="" class="hidden" id="maximizedImagePlaceholder" onclick="minimizeImage()">
+					<img src="../img/icons/close.svg" id="gallery-nav-close" onclick="minimizeImage()"/>
 					<img src="../img/icons/arrow-left.svg" class="gallery-nav" id="gallery-nav-left" onclick="showPreviousImage()">
 					<img src="../img/icons/arrow-right.svg" class="gallery-nav" id="gallery-nav-right" onclick="showNextImage()">
 				</div>
