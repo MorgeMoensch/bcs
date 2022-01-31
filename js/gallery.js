@@ -1,8 +1,8 @@
 const IMAGES_BASE_PATH = "moin";
-var current_image;
-var number_of_images;
-var event;
-var is_maximized = false;
+let current_image;
+let number_of_images;
+let event;
+let is_maximized = false;
 
 function setupGallery(numberOfImages, eventName) {
 	this.number_of_images = numberOfImages;
@@ -12,10 +12,10 @@ function setupGallery(numberOfImages, eventName) {
 	handleWebPSupport();
 }
 
-function setupDOM(numberOfImages, eventName) {
+function setupDOM(eventName) {
 	this.event = eventName;
-	var anchor = document.getElementById('gallery-grid');
-	for (var i = 1; i < numberOfImages + 1; i++) {
+	let anchor = document.getElementById('gallery-grid');
+	for (let i = 1; i < this.number_of_images + 1; i++) {
 		let image_container = document.createElement('img')
 		image_container.setAttribute("src", `${IMAGES_BASE_PATH}/thumbnails/${eventName}/${i}`);
 		image_container.setAttribute("src", `../../BCS-old/gallery/thumbs/night/2017/img (${i}).jpg`);
@@ -24,7 +24,7 @@ function setupDOM(numberOfImages, eventName) {
 	}
 
 	// Possible other solution:
-	// Use 3+ Cols, split up all the images due to their index on to separate cols. Similarely how
+	// Use 3+ Cols, split up all the images due to their index on to separate cols. Similarly how
 	// unsplash solves it.
 }
 
@@ -49,12 +49,12 @@ function setupOnKeyPressed() {
 
 function maximizeImage(number) {
 	this.current_image = number;
-	var placeholder = document.getElementById('maximizedImagePlaceholder');
+	let placeholder = document.getElementById('maximizedImagePlaceholder');
 	placeholder.setAttribute("src", `${IMAGES_BASE_PATH}/full/${this.event}/${number}`);
 	placeholder.setAttribute("src", `../../BCS-old/gallery/night/2017/img (${number}).jpg`);
 	placeholder.setAttribute('class', '');
 
-	var wrapper = document.getElementById('maximizedImageWrapper');
+	let wrapper = document.getElementById('maximizedImageWrapper');
 	wrapper.setAttribute('class', '');
 	this.is_maximized = true;
 
@@ -73,27 +73,27 @@ function maximizeImage(number) {
 }
 
 function minimizeImage() {
-	var maximizedImage = document.getElementById('maximizedImagePlaceholder');
+	let maximizedImage = document.getElementById('maximizedImagePlaceholder');
 	maximizedImage.setAttribute("src", "")
 	maximizedImage.setAttribute('class', 'hidden');
 
-	var wrapper = document.getElementById('maximizedImageWrapper');
+	let wrapper = document.getElementById('maximizedImageWrapper');
 	wrapper.setAttribute('class', 'hidden');
 	this.is_maximized = false;
 }
 
 function showPreviousImage() {
-	var newImageNumber = current_image - 1;
+	let newImageNumber = current_image - 1;
 	maximizeImage(newImageNumber, event);
 }
 
 function showNextImage() {
-	var newImageNumber = current_image + 1;
+	let newImageNumber = current_image + 1;
 	maximizeImage(newImageNumber, event);
 }
 
-function setVisibilityTo(visiblity, id) {
-	if (visiblity) {
+function setVisibilityTo(visibility, id) {
+	if (visibility) {
 		document.getElementById(id).classList.remove('hidden');
 	} else {
 		document.getElementById(id).classList.add('hidden');
