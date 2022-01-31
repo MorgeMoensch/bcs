@@ -1,0 +1,70 @@
+@import 'sizes.less';
+
+@background-color: #1d1f20;
+@sizes: {
+	.sizes();
+}
+
+main {
+	max-width: 90vw;
+}
+#gallery-grid {
+	margin-bottom: 2em;
+	display: flex;
+	flex-wrap: wrap;
+
+	img {
+		max-height: 20vh;
+		object-fit: contain;
+		margin: 0.1em;
+		flex-grow: 1;
+		//flex-basis: 10em;
+		max-width:30em;
+	}
+}
+
+#maximizedImageWrapper {
+	height: 100%;
+	width: 100%;
+	background-color: fade(@background-color, 60%);
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 10;
+
+	#maximizedImagePlaceholder {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		max-height: 90vh;
+
+		@media (max-width: @sizes[desktop]) {
+			width: 95%;
+		}
+	}
+}
+
+.gallery-nav {
+	height: 5em;
+	position: fixed;
+	top: 50%;
+	transform: translate(0, -50%);
+
+	&#gallery-nav-right {
+		position: fixed;
+		right: 0;
+	}
+
+	&#gallery-nav-left {
+		position: fixed;
+		left: 0;
+	}
+}
+
+#gallery-nav-close {
+	position: fixed;
+	top: 10%;
+	right: 0;
+	height: 5em;
+}
