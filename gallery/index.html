@@ -2,11 +2,15 @@
 <html lang="de">
 <head>
     <title>Galerie | BCS</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet/less" type="text/css" href="../style/general.less">
     <link rel="stylesheet/less" type="text/css" href="../style/gallery.less">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <script src="../js/less.js"></script>
     <script src="../js/gallery.js"></script>
+    <script>window.onload = () => {
+        setupGalleryOverview()
+    }</script>
 </head>
 <body>
 <nav id="navbar-container">
@@ -24,7 +28,7 @@
 
         <ul id="menu">
             <li id="info-dropdown-holder">
-                <label for="info-dropdown-toggle" id="info-dropdown-label">Infos 🞃</label>
+                <label for="info-dropdown-toggle" id="info-dropdown-label">Infos ▾</label>
                 <input type="checkbox" id="info-dropdown-toggle">
                 <ul id="info-dropdown">
                     <li><a href="../training.html">Trainingszeiten</a></li>
