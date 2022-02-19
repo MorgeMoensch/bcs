@@ -71,6 +71,10 @@ function maximizeImage(number) {
 		setVisibilityTo(false, 'gallery-nav-right');
 	} else {
 		setVisibilityTo(true, 'gallery-nav-right');
+		// Preload next image
+		let img = new Image();
+		// ToDo: Use Real src. This is for testing purposes only.
+		img.src = `https://bcschuepfen.ch/gallery/night/2017/img (${number + 1}).jpg`
 	}
 }
 
