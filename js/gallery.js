@@ -31,7 +31,7 @@ function setupDOM(eventName) {
 
 function setupOnKeyPressed() {
 	document.addEventListener('keydown', event => {
-		if (is_maximized) {
+		if (this.is_maximized) {
 			if (event.key === 'Escape') {
 				minimizeImage();
 			}
@@ -85,12 +85,12 @@ function minimizeImage() {
 }
 
 function showPreviousImage() {
-	let newImageNumber = current_image - 1;
+	let newImageNumber = this.current_image - 1;
 	maximizeImage(newImageNumber, event);
 }
 
 function showNextImage() {
-	let newImageNumber = current_image + 1;
+	let newImageNumber = this.current_image + 1;
 	maximizeImage(newImageNumber, event);
 }
 
