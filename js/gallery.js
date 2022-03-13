@@ -18,8 +18,6 @@ function setupDOM(eventName) {
 	for (let i = 1; i < this.number_of_images + 1; i++) {
 		let image_container = document.createElement('img')
 		image_container.setAttribute("src", `${IMAGES_BASE_PATH}/thumbnails/${eventName}/img-${i}.jpg`);
-		//image_container.setAttribute("src", `../../BCS-old/gallery/thumbs/night/2017/img (${i}).jpg`);
-		//image_container.setAttribute("src", `https://bcschuepfen.ch/gallery/thumbs/night/2017/img (${i}).jpg`);
 		image_container.setAttribute('onclick', `maximizeImage(${i}, '${eventName.toString()}')`);
 		anchor.appendChild(image_container);
 	}
@@ -52,8 +50,6 @@ function maximizeImage(number) {
 	this.current_image = number;
 	let placeholder = document.getElementById('maximizedImagePlaceholder');
 	placeholder.setAttribute("src", `${IMAGES_BASE_PATH}/full/${this.event}/img-${number}.jpg`);
-	//placeholder.setAttribute("src", `../../BCS-old/gallery/night/2017/img (${number}).jpg`);
-	//placeholder.setAttribute("src", `https://bcschuepfen.ch/gallery/night/2017/img (${number}).jpg`);
 	placeholder.setAttribute('class', '');
 
 	let wrapper = document.getElementById('maximizedImageWrapper');
@@ -73,8 +69,7 @@ function maximizeImage(number) {
 		setVisibilityTo(true, 'gallery-nav-right');
 		// Preload next image
 		let img = new Image();
-		// ToDo: Use Real src. This is for testing purposes only.
-		img.src = `https://bcschuepfen.ch/gallery/night/2017/img (${number + 1}).jpg`
+		img.src = `${IMAGES_BASE_PATH}/full/${this.event}/img-${number + 1}.jpg`
 	}
 }
 
