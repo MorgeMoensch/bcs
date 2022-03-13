@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Badminton-Night 2015 - Galerie | BCS</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: #1d1f20;
+        }
+    </style>
+    <link rel="stylesheet/less" type="text/css" href="../style/general.less">
+    <link rel="stylesheet/less" type="text/css" href="../style/gallery.less">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script src="../js/less.js"></script>
+    <script src="../js/gallery.js"></script>
+    <script>window.onload = () => {setupGallery(70, 'night-2015')}</script>
+</head>
+<body>
+<div id="navbar-container">
+    <div id="navbar">
+        <a href="../index.html">
+            <img src="../img/bcslogo.webp" alt="BCS Logo"/>
+        </a>
+        <input type="checkbox" id="mobile-menu-toggle" class="hidden">
+        <label for="mobile-menu-toggle" class="mobile-only" id="mobile-menu-toggle-label"></label>
+        <div id="hamburger-wrapper" class="mobile-only">
+            <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+            </div>
+        </div>
+
+        <ul id="menu">
+            <li id="info-dropdown-holder">
+                <label for="info-dropdown-toggle" id="info-dropdown-label">Infos</label>
+                <input type="checkbox" id="info-dropdown-toggle">
+                <ul id="info-dropdown">
+                    <li><a href="../training.html">Trainingszeiten</a></li>
+                    <li><a href="../team.html">Team</a></li>
+                    <li><a href="../turniere.html">Turniere</a></li>
+                    <li><a href="../downloads.html">Downloads</a></li>
+                    <li><a href="../mitgliedschaft.html">Mitgliedschaft</a></li>
+                </ul>
+            </li>
+            <li><a href="/index.html">Bildergalerie</a></li>
+            <li><a href="https://night.bcschuepfen.ch">Badmintonnight</a></li>
+            <li><a href="../sponsoren.html">Sponsoren</a></li>
+            <li><a href="../kontakt.html">Kontakt</a></li>
+        </ul>
+    </div>
+</div>
+<main>
+    <div>
+        <div id="maximizedImageWrapper" class="hidden">
+            <img src="" class="hidden" id="maximizedImagePlaceholder" onclick="minimizeImage()">
+            <img src="../img/icons/close.svg" id="gallery-nav-close" onclick="minimizeImage()"/>
+            <img src="../img/icons/arrow-left.svg" class="gallery-nav" id="gallery-nav-left" onclick="showPreviousImage()">
+            <img src="../img/icons/arrow-right.svg" class="gallery-nav" id="gallery-nav-right" onclick="showNextImage()">
+        </div>
+    </div>
+    <div id="gallery-grid"></div>
+</main>
+</body>
+</html>

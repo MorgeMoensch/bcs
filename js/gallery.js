@@ -1,4 +1,4 @@
-const IMAGES_BASE_PATH = "moin";
+const IMAGES_BASE_PATH = "../img/gallery";
 let current_image;
 let number_of_images;
 let event;
@@ -6,7 +6,7 @@ let is_maximized = false;
 
 function setupGallery(numberOfImages, eventName) {
 	this.number_of_images = numberOfImages;
-	setupDOM(numberOfImages, eventName);
+	setupDOM(eventName);
 	setupOnKeyPressed();
 
 	handleWebPSupport();
@@ -17,9 +17,9 @@ function setupDOM(eventName) {
 	let anchor = document.getElementById('gallery-grid');
 	for (let i = 1; i < this.number_of_images + 1; i++) {
 		let image_container = document.createElement('img')
-		//image_container.setAttribute("src", `${IMAGES_BASE_PATH}/thumbnails/${eventName}/${i}`);
+		image_container.setAttribute("src", `${IMAGES_BASE_PATH}/thumbnails/${eventName}/img-${i}.jpg`);
 		//image_container.setAttribute("src", `../../BCS-old/gallery/thumbs/night/2017/img (${i}).jpg`);
-		image_container.setAttribute("src", `https://bcschuepfen.ch/gallery/thumbs/night/2017/img (${i}).jpg`);
+		//image_container.setAttribute("src", `https://bcschuepfen.ch/gallery/thumbs/night/2017/img (${i}).jpg`);
 		image_container.setAttribute('onclick', `maximizeImage(${i}, '${eventName.toString()}')`);
 		anchor.appendChild(image_container);
 	}
@@ -51,9 +51,9 @@ function setupOnKeyPressed() {
 function maximizeImage(number) {
 	this.current_image = number;
 	let placeholder = document.getElementById('maximizedImagePlaceholder');
-	//placeholder.setAttribute("src", `${IMAGES_BASE_PATH}/full/${this.event}/${number}`);
+	placeholder.setAttribute("src", `${IMAGES_BASE_PATH}/full/${this.event}/img-${number}.jpg`);
 	//placeholder.setAttribute("src", `../../BCS-old/gallery/night/2017/img (${number}).jpg`);
-	placeholder.setAttribute("src", `https://bcschuepfen.ch/gallery/night/2017/img (${number}).jpg`);
+	//placeholder.setAttribute("src", `https://bcschuepfen.ch/gallery/night/2017/img (${number}).jpg`);
 	placeholder.setAttribute('class', '');
 
 	let wrapper = document.getElementById('maximizedImageWrapper');
