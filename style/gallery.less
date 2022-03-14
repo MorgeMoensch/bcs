@@ -12,6 +12,8 @@ main {
 	margin-bottom: 2em;
 	display: flex;
 	flex-wrap: wrap;
+	align-content: space-between;
+	justify-content: space-between;
 
 	img {
 		max-height: 20vh;
@@ -20,6 +22,13 @@ main {
 		flex-grow: 1;
 		//flex-basis: 10em;
 		max-width:30em;
+	}
+
+	@media(max-width: @sizes[desktop]) {
+		img {
+			max-width: 25em;
+			margin: 0.3em;
+		}
 	}
 }
 
@@ -72,14 +81,18 @@ main {
 .gallery-index-overview-section {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content: center;
 
 	img {
-		max-width: 20em;
+		width: 20em;
+		height: 13em;
+		object-fit: cover;
 	}
 
 	a {
 		text-decoration: none;
+		height: 13em;
+		margin: 1em;
 	}
 
 	figure {
@@ -104,4 +117,10 @@ main {
         font-size: 2.5em;
       }
     }
+}
+
+.gallery {
+	h2 {
+		margin-top: 1em;
+	}
 }
