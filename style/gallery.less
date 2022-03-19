@@ -16,12 +16,12 @@ main {
 	justify-content: space-between;
 
 	img {
-		max-height: 20vh;
-		object-fit: contain;
-		margin: 0.1em;
-		flex-grow: 1;
+		//max-height: 20vh;
+		//object-fit: contain;
+		//margin: 0.1em;
+		//flex-grow: 1;
 		//flex-basis: 10em;
-		max-width:30em;
+		//max-width:30em;
 	}
 
 	@media(max-width: @sizes[desktop]) {
@@ -43,10 +43,11 @@ main {
 
 	#maximizedImagePlaceholder {
 		position: absolute;
-		top: 50%;
+		top: calc(50% + 2em);
 		left: 50%;
 		transform: translate(-50%, -50%);
-		max-height: 90vh;
+		max-height: 85vh;
+		max-width: 90vw;
 
 		@media (max-width: @sizes[desktop]) {
 			width: 95%;
@@ -129,6 +130,28 @@ main {
 	text-align: left;
 	margin-bottom: 1em;
 	display: block;
+}
+
+@media (max-width: @sizes[desktop]) {
+	.gallery-back-to-overview {
+		font-size: 2.5em !important;
+	}
+}
+
+#gallery-grid {
+	max-width: 100em;
+	margin: 0 auto 2em auto;
+}
+
+.gallery-column {
+	flex: 25%;
+	padding: 0 4px;
+}
+
+.gallery-column img {
+	margin-top: 8px;
+	vertical-align: middle;
+	width: 100%;
 }
 
 @media (max-width: @sizes[desktop]) {

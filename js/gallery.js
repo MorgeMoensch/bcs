@@ -15,16 +15,31 @@ function setupGallery(numberOfImages, eventName) {
 function setupDOM(eventName) {
 	this.event = eventName;
 	let anchor = document.getElementById('gallery-grid');
+
+	let cols = [];
+	for(let i = 0; i <3; i++) {
+		let col = document.createElement('div')
+		col.setAttribute('id', `gallery-col-${i}`)
+		col.setAttribute('class', `gallery-column`)
+		anchor.appendChild(col)
+		cols.push(col)
+	}
+
 	for (let i = 1; i < this.number_of_images + 1; i++) {
-		let image_container = document.createElement('img')
-		image_container.setAttribute("src", `${IMAGES_BASE_PATH}/thumbnails/${eventName}/img-${i}.jpg`);
-		image_container.setAttribute('onclick', `maximizeImage(${i}, '${eventName.toString()}')`);
-		anchor.appendChild(image_container);
+		addImage(cols[i%3], i)
 	}
 
 	// Possible other solution:
 	// Use 3+ Cols, split up all the images due to their index on to separate cols. Similarly how
 	// unsplash solves it.
+}
+
+function addImage(col, i) {
+	let image_container = document.createElement('img')
+	image_container.setAttribute("src", `${IMAGES_BASE_PATH}/thumbnails/${this.event}/img-${i}.jpg`);
+	image_container.setAttribute('onclick', `maximizeImage(${i}, '${this.event.toString()}')`);
+	image_container.setAttribute('loading', 'lazy')
+	col.appendChild(image_container);
 }
 
 function setupOnKeyPressed() {
